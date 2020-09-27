@@ -12,20 +12,10 @@ option(XENIUM_ENABLE_TESTING "Enable testing of the xenium library." ON)
 
 list(APPEND CMAKE_MODULE_PATH "${xenium_SOURCE_DIR}/cmake")
 
-file(GLOB_RECURSE XENIUM_FILES xenium/*.hpp)
-
-file(GLOB_RECURSE TEST_FILES test/*.cpp)
-
-file(GLOB_RECURSE BENCHMARK_FILES benchmarks/*.cpp)
-
-include_directories(.)
-
 include(FetchContent)
 if(${CMAKE_VERSION} VERSION_LESS 3.14)
 	include(add_FetchContent_MakeAvailable)
 endif()
-
-add_subdirectory(xenium)
 
 if(CMAKE_BUILD_TYPE MATCHES Debug)
 	add_definitions(-DDEBUG)
@@ -34,6 +24,8 @@ elseif(CMAKE_BUILD_TYPE MATCHES RelWithDebug)
 elseif(CMAKE_BUILD_TYPE MATCHES Release)
 	add_definitions(-DNDEBUG)
 endif()
+
+add_subdirectory("include/xenium")
 
 if(XENIUM_BUILD_DOCUMENTATION)
 	if(NOT DOXYGEN_FOUND)
@@ -50,4 +42,5 @@ endif()
 if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND XENIUM_ENABLE_TESTING)
 	enable_testing()
 	add_subdirectory(test)
+	add_subdirectory(benchmarks)
 endif()

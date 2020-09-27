@@ -1,5 +1,4 @@
 #include <xenium/reclamation/detail/concurrent_ptr.hpp>
-
 #include <gtest/gtest.h>
 
 namespace {
