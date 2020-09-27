@@ -25,6 +25,8 @@ if(${CMAKE_VERSION} VERSION_LESS 3.14)
 	include(add_FetchContent_MakeAvailable)
 endif()
 
+add_subdirectory(xenium)
+
 if(CMAKE_BUILD_TYPE MATCHES Debug)
 	add_definitions(-DDEBUG)
 elseif(CMAKE_BUILD_TYPE MATCHES RelWithDebug)
