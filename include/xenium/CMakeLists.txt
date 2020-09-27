@@ -22,8 +22,8 @@ configure_package_config_file(
 	INSTALL_DESTINATION ${XENIUM_CMAKE_CONFIG_INSTALL_DIR})
 write_basic_package_version_file("${version_config}" COMPATIBILITY SameMajorVersion)
 
-if (APOLLO_ENABLE_INSTALL)
-	install(TARGETS apollo
+if (XENIUM_ENABLE_INSTALL)
+	install(TARGETS xenium
 			EXPORT ${targets_export_name}
 			ARCHIVE DESTINATION ${XENIUM_ARCHIVE_INSTALL_DIR}
 			LIBRARY DESTINATION ${XENIUM_LIBRARY_INSTALL_DIR}
