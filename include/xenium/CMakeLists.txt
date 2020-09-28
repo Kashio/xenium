@@ -33,7 +33,7 @@ if (XENIUM_ENABLE_INSTALL)
 	install(
 		DIRECTORY "${xenium_SOURCE_DIR}/include/xenium"
 		DESTINATION ${XENIUM_INC_INSTALL_DIR}
-		FILES_MATCHING PATTERN "*.h")
+		FILES_MATCHING PATTERN "*.hpp")
 
 	install(
       FILES "${project_config}" "${version_config}"
